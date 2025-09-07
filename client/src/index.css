@@ -42,13 +42,13 @@ code {
 /* Currency formatting */
 .currency {
   font-weight: 600;
-  color: #2c5aa0;
+  color: #1890ff;
 }
 
 .currency-large {
   font-size: 18px;
   font-weight: 700;
-  color: #2c5aa0;
+  color: #1890ff;
 }
 
 /* Status indicators */
@@ -78,7 +78,7 @@ code {
 .ant-table-thead > tr > th {
   background-color: #fafafa;
   font-weight: 600;
-  color: #2c5aa0;
+  color: #1890ff;
 }
 
 .ant-table-tbody > tr:hover > td {
@@ -92,13 +92,13 @@ code {
 
 /* Button enhancements */
 .ant-btn-primary {
-  background: #2c5aa0;
-  border-color: #2c5aa0;
+  background: #1890ff;
+  border-color: #1890ff;
 }
 
 .ant-btn-primary:hover {
-  background: #1e3f73;
-  border-color: #1e3f73;
+  background: #40a9ff;
+  border-color: #40a9ff;
 }
 
 /* Layout enhancements */
@@ -205,7 +205,7 @@ code {
 .metric-value {
   font-size: 24px;
   font-weight: 700;
-  color: #2c5aa0;
+  color: #1890ff;
   margin-bottom: 8px;
 }
 
@@ -299,7 +299,7 @@ code {
 
 /* Custom progress styles */
 .ant-progress-text {
-  color: #2c5aa0;
+  color: #1890ff;
   font-weight: 600;
 }
 

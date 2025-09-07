@@ -129,8 +129,8 @@ const Dashboard = () => {
             <Statistic
               title="Daily Records"
               value={todaySummary.totalRecords}
-              prefix={<ProjectOutlined style={{ color: '#2c5aa0' }} />}
-              valueStyle={{ color: '#2c5aa0' }}
+              prefix={<ProjectOutlined style={{ color: '#1890ff' }} />}
+              valueStyle={{ color: '#1890ff' }}
             />
           </Card>
         </Col>
@@ -331,7 +331,7 @@ const Dashboard = () => {
                           title="Total Payments"
                           value={company.totalPayments}
                           formatter={(value) => formatCurrency(value)}
-                          valueStyle={{ fontSize: 16, color: '#2c5aa0' }}
+                          valueStyle={{ fontSize: 16, color: '#1890ff' }}
                         />
                       </Space>
                     </Card>
