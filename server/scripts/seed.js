@@ -79,18 +79,19 @@ const seedData = async () => {
     const siteId = siteResult.rows[0]?.id;
 
     // Create worker types for the site
-    await pool.query(`
-      INSERT INTO worker_types (site_id, name, daily_rate, description, minimum_task_requirement)
-      VALUES 
-        ($1, $2, $3, $4, $5),
-        ($1, $6, $7, $8, $9),
-        ($1, $10, $11, $12, $13)
-      ON CONFLICT (site_id, name) DO NOTHING
-    `, [
-      siteId, 'Skilled Worker', 15000.00, 'Experienced mining workers', 'Complete assigned mining tasks',
-      siteId, 'Cleaning Worker', 10000.00, 'Site cleaning and maintenance workers', 'Complete site cleaning duties',
-      siteId, 'Security Guard', 12000.00, 'Site security personnel', 'Complete security shift'
-    ]);
+    const workerTypes = [
+      { name: 'Skilled Worker', rate: 15000.00, description: 'Experienced mining workers', requirement: 'Complete assigned mining tasks' },
+      { name: 'Cleaning Worker', rate: 10000.00, description: 'Site cleaning and maintenance workers', requirement: 'Complete site cleaning duties' },
+      { name: 'Security Guard', rate: 12000.00, description: 'Site security personnel', requirement: 'Complete security shift' }
+    ];
+
+    for (const workerType of workerTypes) {
+      await pool.query(`
+        INSERT INTO worker_types (site_id, name, daily_rate, description, minimum_task_requirement)
+        VALUES ($1, $2, $3, $4, $5)
+        ON CONFLICT (site_id, name) DO NOTHING
+      `, [siteId, workerType.name, workerType.rate, workerType.description, workerType.requirement]);
+    }
 
     // Assign supervisor to site
     await pool.query(`

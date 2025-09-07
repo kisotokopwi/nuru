@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Row, 
-  Col, 
-  Card, 
-  Statistic, 
-  Table, 
-  Typography, 
-  Alert, 
+import {
+  Row,
+  Col,
+  Card,
+  Statistic,
+  Table,
+  Typography,
+  Alert,
   Spin,
   Button,
   DatePicker,
@@ -20,7 +20,7 @@ import {
   EnvironmentOutlined,
   FileTextOutlined,
   DollarOutlined,
-  TrendingUpOutlined,
+  RiseOutlined,
   WarningOutlined,
   CheckCircleOutlined,
   ClockCircleOutlined
@@ -51,7 +51,7 @@ const Dashboard = () => {
         start_date: dateRange[0].format('YYYY-MM-DD'),
         end_date: dateRange[1].format('YYYY-MM-DD')
       };
-      
+
       if (selectedSite) {
         params.site_id = selectedSite;
       }
@@ -93,7 +93,7 @@ const Dashboard = () => {
   const getStatusColor = (record) => {
     const today = moment().format('YYYY-MM-DD');
     const recordDate = moment(record.record_date).format('YYYY-MM-DD');
-    
+
     if (recordDate === today) {
       return 'success';
     } else if (moment(recordDate).isAfter(today)) {
@@ -107,7 +107,7 @@ const Dashboard = () => {
   const getStatusIcon = (record) => {
     const today = moment().format('YYYY-MM-DD');
     const recordDate = moment(record.record_date).format('YYYY-MM-DD');
-    
+
     if (recordDate === today) {
       return <CheckCircleOutlined />;
     } else if (moment(recordDate).isAfter(today)) {
@@ -172,8 +172,8 @@ const Dashboard = () => {
       key: 'status',
       render: (_, record) => (
         <Tag color={getStatusColor(record)} icon={getStatusIcon(record)}>
-          {moment(record.record_date).format('DD/MM/YYYY') === moment().format('DD/MM/YYYY') ? 'Today' : 
-           moment(record.record_date).isAfter(moment()) ? 'Future' : 'Past'}
+          {moment(record.record_date).format('DD/MM/YYYY') === moment().format('DD/MM/YYYY') ? 'Today' :
+            moment(record.record_date).isAfter(moment()) ? 'Future' : 'Past'}
         </Tag>
       ),
     },
@@ -200,8 +200,8 @@ const Dashboard = () => {
       title: 'Action',
       key: 'action',
       render: (_, record) => (
-        <Button 
-          type="link" 
+        <Button
+          type="link"
           size="small"
           onClick={() => {
             // Navigate to daily records with pre-filled site
@@ -267,9 +267,9 @@ const Dashboard = () => {
                 format="DD/MM/YYYY"
                 placeholder={['Start Date', 'End Date']}
               />
-              <Button 
-                type="primary" 
-                icon={<TrendingUpOutlined />}
+              <Button
+                type="primary"
+                icon={<RiseOutlined />}
                 onClick={() => refetch()}
                 loading={isLoading}
               >
@@ -304,7 +304,7 @@ const Dashboard = () => {
                 </div>
               </Card>
             </Col>
-            
+
             <Col xs={24} sm={12} lg={6}>
               <Card className="stat-card">
                 <Statistic
@@ -320,7 +320,7 @@ const Dashboard = () => {
                 </div>
               </Card>
             </Col>
-            
+
             <Col xs={24} sm={12} lg={6}>
               <Card className="stat-card">
                 <Statistic
@@ -342,7 +342,7 @@ const Dashboard = () => {
                 </div>
               </Card>
             </Col>
-            
+
             <Col xs={24} sm={12} lg={6}>
               <Card className="stat-card">
                 <Statistic
@@ -406,7 +406,7 @@ const Dashboard = () => {
                 </Row>
               </Card>
             </Col>
-            
+
             <Col xs={24} lg={12}>
               <Card title="This Month" className="period-card">
                 <Row gutter={16}>
@@ -448,12 +448,12 @@ const Dashboard = () => {
           {/* Recent Activity and Missing Entries */}
           <Row gutter={[16, 16]} className="activity-section">
             <Col xs={24} lg={16}>
-              <Card 
-                title="Recent Activity" 
+              <Card
+                title="Recent Activity"
                 className="activity-card"
                 extra={
-                  <Button 
-                    type="link" 
+                  <Button
+                    type="link"
                     onClick={() => window.location.href = '/records'}
                   >
                     View All
@@ -470,10 +470,10 @@ const Dashboard = () => {
                 />
               </Card>
             </Col>
-            
+
             <Col xs={24} lg={8}>
-              <Card 
-                title="Missing Entries" 
+              <Card
+                title="Missing Entries"
                 className="missing-entries-card"
                 extra={
                   <Tag color="red" icon={<WarningOutlined />}>

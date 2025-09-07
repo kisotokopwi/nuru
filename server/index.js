@@ -18,7 +18,7 @@ const auditRoutes = require('./routes/audit');
 const userRoutes = require('./routes/users');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // Security middleware
 app.use(helmet());
@@ -47,8 +47,8 @@ app.use(morgan('combined'));
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
+  res.json({
+    status: 'OK',
     timestamp: new Date().toISOString(),
     version: '1.0.0'
   });
@@ -69,13 +69,13 @@ app.use('/api/users', userRoutes);
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Error:', err);
-  
+
   if (err.type === 'entity.parse.failed') {
-    return res.status(400).json({ 
-      error: 'Invalid JSON format' 
+    return res.status(400).json({
+      error: 'Invalid JSON format'
     });
   }
-  
+
   res.status(err.status || 500).json({
     error: err.message || 'Internal server error',
     ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
@@ -84,8 +84,8 @@ app.use((err, req, res, next) => {
 
 // 404 handler
 app.use('*', (req, res) => {
-  res.status(404).json({ 
-    error: 'Route not found' 
+  res.status(404).json({
+    error: 'Route not found'
   });
 });
 
