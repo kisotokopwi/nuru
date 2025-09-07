@@ -1,0 +1,567 @@
+/* Projects Page Styles */
+.projects-container {
+  padding: 0;
+  background: #f0f2f5;
+  min-height: 100vh;
+}
+
+.projects-header {
+  background: white;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.page-title {
+  margin-bottom: 8px !important;
+  color: #262626 !important;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Summary Cards */
+.summary-cards {
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card .ant-card-body {
+  padding: 24px;
+}
+
+.stat-card .ant-statistic-title {
+  color: #8c8c8c;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.stat-card .ant-statistic-content {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.stat-card .ant-statistic-content-prefix {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+/* Filters Card */
+.filters-card {
+  margin-bottom: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+}
+
+.filters-card .ant-card-body {
+  padding: 20px;
+}
+
+/* Table Card */
+.table-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+}
+
+.table-card .ant-card-body {
+  padding: 0;
+}
+
+.table-card .ant-table {
+  border-radius: 0;
+}
+
+.table-card .ant-table-thead > tr > th {
+  background: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+  font-weight: 600;
+  color: #262626;
+  font-size: 13px;
+}
+
+.table-card .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+}
+
+.table-card .ant-table-tbody > tr:hover > td {
+  background: #f5f5f5;
+}
+
+/* Error Container */
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+}
+
+/* Project Modal Styles */
+.project-modal .ant-modal-header {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 24px;
+}
+
+.project-modal .ant-modal-body {
+  padding: 24px;
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #262626;
+}
+
+.project-form .ant-form-item-label > label {
+  font-weight: 500;
+  color: #262626;
+}
+
+.project-form .ant-input,
+.project-form .ant-input-affix-wrapper {
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.3s ease;
+}
+
+.project-form .ant-input:focus,
+.project-form .ant-input-affix-wrapper:focus,
+.project-form .ant-input-focused,
+.project-form .ant-input-affix-wrapper-focused {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+}
+
+.project-form .ant-input-affix-wrapper .ant-input {
+  border: none;
+  box-shadow: none;
+}
+
+.project-form .ant-input-affix-wrapper .ant-input:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.custom-checkbox {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  accent-color: #1890ff;
+}
+
+.checkbox-label {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 24px;
+}
+
+/* Project Details Modal */
+.project-details-modal .ant-modal-header {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 24px;
+}
+
+.project-details-modal .ant-modal-body {
+  padding: 24px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info-card,
+.template-card,
+.sites-card,
+.activity-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+}
+
+.info-card .ant-card-head,
+.template-card .ant-card-head,
+.sites-card .ant-card-head,
+.activity-card .ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 24px;
+}
+
+.info-card .ant-card-head-title,
+.template-card .ant-card-head-title,
+.sites-card .ant-card-head-title,
+.activity-card .ant-card-head-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #262626;
+}
+
+.info-card .ant-card-body,
+.template-card .ant-card-body,
+.sites-card .ant-card-body,
+.activity-card .ant-card-body {
+  padding: 24px;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #262626;
+}
+
+.template-item {
+  margin-bottom: 12px;
+  padding: 8px 0;
+}
+
+.template-item:last-child {
+  margin-bottom: 0;
+}
+
+.stats-row {
+  margin-bottom: 0;
+}
+
+.stats-row .stat-card {
+  margin-bottom: 0;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.activity-item {
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #1890ff;
+}
+
+.activity-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .header-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    padding: 0;
+  }
+  
+  .projects-header {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .header-left {
+    min-width: auto;
+  }
+  
+  .page-title {
+    font-size: 20px !important;
+  }
+  
+  .summary-cards {
+    margin-bottom: 16px;
+  }
+  
+  .stat-card .ant-card-body {
+    padding: 16px;
+  }
+  
+  .stat-card .ant-statistic-content {
+    font-size: 24px;
+  }
+  
+  .filters-card {
+    margin-bottom: 16px;
+  }
+  
+  .filters-card .ant-card-body {
+    padding: 16px;
+  }
+  
+  .project-modal .ant-modal-body {
+    padding: 16px;
+  }
+  
+  .project-details-modal .ant-modal-body {
+    padding: 16px;
+  }
+  
+  .info-card .ant-card-body,
+  .template-card .ant-card-body,
+  .sites-card .ant-card-body,
+  .activity-card .ant-card-body {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .projects-header {
+    padding: 12px;
+  }
+  
+  .page-title {
+    font-size: 18px !important;
+  }
+  
+  .stat-card .ant-card-body {
+    padding: 12px;
+  }
+  
+  .stat-card .ant-statistic-content {
+    font-size: 20px;
+  }
+  
+  .filters-card .ant-card-body {
+    padding: 12px;
+  }
+  
+  .project-modal .ant-modal-body {
+    padding: 12px;
+  }
+  
+  .project-details-modal .ant-modal-body {
+    padding: 12px;
+  }
+  
+  .info-card .ant-card-body,
+  .template-card .ant-card-body,
+  .sites-card .ant-card-body,
+  .activity-card .ant-card-body {
+    padding: 12px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .projects-container {
+    background: #141414;
+  }
+  
+  .projects-header {
+    background: #1f1f1f;
+    border: 1px solid #303030;
+  }
+  
+  .page-title {
+    color: #fff !important;
+  }
+  
+  .stat-card,
+  .filters-card,
+  .table-card,
+  .info-card,
+  .template-card,
+  .sites-card,
+  .activity-card {
+    background: #1f1f1f;
+    border: 1px solid #303030;
+  }
+  
+  .stat-card .ant-statistic-title {
+    color: #ccc;
+  }
+  
+  .table-card .ant-table-thead > tr > th {
+    background: #262626;
+    border-bottom: 1px solid #303030;
+    color: #fff;
+  }
+  
+  .table-card .ant-table-tbody > tr > td {
+    border-bottom: 1px solid #303030;
+    color: #ccc;
+  }
+  
+  .table-card .ant-table-tbody > tr:hover > td {
+    background: #262626;
+  }
+  
+  .error-container {
+    background: #1f1f1f;
+    border: 1px solid #303030;
+  }
+  
+  .modal-title {
+    color: #fff;
+  }
+  
+  .project-form .ant-form-item-label > label {
+    color: #fff;
+  }
+  
+  .checkbox-label {
+    color: #ccc;
+  }
+  
+  .card-title {
+    color: #fff;
+  }
+  
+  .activity-item {
+    background: #262626;
+    border-left-color: #1890ff;
+  }
+}
+
+/* Animation effects */
+.stat-card {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.stat-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.stat-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.stat-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filters-card {
+  animation: slideInDown 0.6s ease-out;
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.table-card {
+  animation: fadeIn 0.6s ease-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Print styles */
+@media print {
+  .projects-header {
+    background: white !important;
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+  }
+  
+  .stat-card,
+  .filters-card,
+  .table-card {
+    background: white !important;
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+    break-inside: avoid;
+  }
+  
+  .header-actions {
+    display: none !important;
+  }
+}

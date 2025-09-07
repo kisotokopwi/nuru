@@ -1,0 +1,544 @@
+/* Dashboard Styles */
+.dashboard-container {
+  padding: 0;
+  background: #f0f2f5;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  background: white;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.dashboard-title {
+  margin-bottom: 8px !important;
+  color: #262626 !important;
+  font-weight: 600;
+}
+
+.dashboard-subtitle {
+  color: #8c8c8c;
+  font-size: 16px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+}
+
+/* Summary Cards */
+.summary-cards {
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card .ant-card-body {
+  padding: 24px;
+}
+
+.stat-card .ant-statistic-title {
+  color: #8c8c8c;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.stat-card .ant-statistic-content {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.stat-card .ant-statistic-content-prefix {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.stat-footer {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.stat-footer .ant-typography {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+/* Period Summary */
+.period-summary {
+  margin-bottom: 24px;
+}
+
+.period-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  height: 100%;
+}
+
+.period-card .ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 24px;
+}
+
+.period-card .ant-card-head-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #262626;
+}
+
+.period-card .ant-card-body {
+  padding: 24px;
+}
+
+.period-card .ant-statistic {
+  text-align: center;
+}
+
+.period-card .ant-statistic-title {
+  color: #8c8c8c;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.period-card .ant-statistic-content {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Activity Section */
+.activity-section {
+  margin-bottom: 24px;
+}
+
+.activity-card,
+.missing-entries-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  height: 100%;
+}
+
+.activity-card .ant-card-head,
+.missing-entries-card .ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 24px;
+}
+
+.activity-card .ant-card-head-title,
+.missing-entries-card .ant-card-head-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #262626;
+}
+
+.activity-card .ant-card-body,
+.missing-entries-card .ant-card-body {
+  padding: 0;
+}
+
+.activity-card .ant-table,
+.missing-entries-card .ant-table {
+  border-radius: 0;
+}
+
+.activity-card .ant-table-thead > tr > th,
+.missing-entries-card .ant-table-thead > tr > th {
+  background: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+  font-weight: 600;
+  color: #262626;
+  font-size: 13px;
+}
+
+.activity-card .ant-table-tbody > tr > td,
+.missing-entries-card .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+}
+
+.activity-card .ant-table-tbody > tr:hover > td,
+.missing-entries-card .ant-table-tbody > tr:hover > td {
+  background: #f5f5f5;
+}
+
+.no-missing-entries {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  gap: 12px;
+}
+
+.no-missing-entries .ant-typography {
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .header-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 0;
+  }
+  
+  .dashboard-header {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .header-left {
+    min-width: auto;
+  }
+  
+  .dashboard-title {
+    font-size: 20px !important;
+  }
+  
+  .dashboard-subtitle {
+    font-size: 14px;
+  }
+  
+  .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  
+  .header-actions .ant-space {
+    width: 100%;
+  }
+  
+  .header-actions .ant-select {
+    width: 100% !important;
+  }
+  
+  .summary-cards {
+    margin-bottom: 16px;
+  }
+  
+  .stat-card .ant-card-body {
+    padding: 16px;
+  }
+  
+  .stat-card .ant-statistic-content {
+    font-size: 24px;
+  }
+  
+  .period-summary {
+    margin-bottom: 16px;
+  }
+  
+  .period-card .ant-card-body {
+    padding: 16px;
+  }
+  
+  .activity-section {
+    margin-bottom: 16px;
+  }
+  
+  .activity-card .ant-card-head,
+  .missing-entries-card .ant-card-head {
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-header {
+    padding: 12px;
+  }
+  
+  .dashboard-title {
+    font-size: 18px !important;
+  }
+  
+  .stat-card .ant-card-body {
+    padding: 12px;
+  }
+  
+  .stat-card .ant-statistic-content {
+    font-size: 20px;
+  }
+  
+  .period-card .ant-card-body {
+    padding: 12px;
+  }
+  
+  .activity-card .ant-card-head,
+  .missing-entries-card .ant-card-head {
+    padding: 8px 12px;
+  }
+  
+  .activity-card .ant-card-head-title,
+  .missing-entries-card .ant-card-head-title {
+    font-size: 14px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .dashboard-container {
+    background: #141414;
+  }
+  
+  .dashboard-header {
+    background: #1f1f1f;
+    border: 1px solid #303030;
+  }
+  
+  .dashboard-title {
+    color: #fff !important;
+  }
+  
+  .dashboard-subtitle {
+    color: #ccc;
+  }
+  
+  .stat-card {
+    background: #1f1f1f;
+    border: 1px solid #303030;
+  }
+  
+  .stat-card .ant-statistic-title {
+    color: #ccc;
+  }
+  
+  .stat-footer {
+    border-top: 1px solid #303030;
+  }
+  
+  .stat-footer .ant-typography {
+    color: #999;
+  }
+  
+  .period-card {
+    background: #1f1f1f;
+    border: 1px solid #303030;
+  }
+  
+  .period-card .ant-card-head {
+    border-bottom: 1px solid #303030;
+  }
+  
+  .period-card .ant-card-head-title {
+    color: #fff;
+  }
+  
+  .period-card .ant-statistic-title {
+    color: #ccc;
+  }
+  
+  .activity-card,
+  .missing-entries-card {
+    background: #1f1f1f;
+    border: 1px solid #303030;
+  }
+  
+  .activity-card .ant-card-head,
+  .missing-entries-card .ant-card-head {
+    border-bottom: 1px solid #303030;
+  }
+  
+  .activity-card .ant-card-head-title,
+  .missing-entries-card .ant-card-head-title {
+    color: #fff;
+  }
+  
+  .activity-card .ant-table-thead > tr > th,
+  .missing-entries-card .ant-table-thead > tr > th {
+    background: #262626;
+    border-bottom: 1px solid #303030;
+    color: #fff;
+  }
+  
+  .activity-card .ant-table-tbody > tr > td,
+  .missing-entries-card .ant-table-tbody > tr > td {
+    border-bottom: 1px solid #303030;
+    color: #ccc;
+  }
+  
+  .activity-card .ant-table-tbody > tr:hover > td,
+  .missing-entries-card .ant-table-tbody > tr:hover > td {
+    background: #262626;
+  }
+  
+  .no-missing-entries .ant-typography {
+    color: #999;
+  }
+}
+
+/* Animation effects */
+.stat-card {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.stat-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.stat-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.stat-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.stat-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.period-card {
+  animation: slideInLeft 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.period-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.period-card:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.activity-card,
+.missing-entries-card {
+  animation: slideInRight 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.activity-card {
+  animation-delay: 0.4s;
+}
+
+.missing-entries-card {
+  animation-delay: 0.5s;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Loading states */
+.loading-container .ant-spin {
+  color: #1890ff;
+}
+
+.loading-container .ant-typography {
+  color: #8c8c8c;
+}
+
+/* Hover effects */
+.stat-card:hover .ant-statistic-content {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.period-card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.3s ease;
+}
+
+/* Print styles */
+@media print {
+  .dashboard-header {
+    background: white !important;
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+  }
+  
+  .stat-card,
+  .period-card,
+  .activity-card,
+  .missing-entries-card {
+    background: white !important;
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+    break-inside: avoid;
+  }
+  
+  .header-actions {
+    display: none !important;
+  }
+}
