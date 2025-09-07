@@ -1,283 +1,250 @@
-# Nuru Company - Enhanced Worker Supervision & Invoice Management System
+# Nuru Company – Enhanced Worker Supervision & Invoice Management System
 
-A comprehensive system for managing worker supervision, daily records, and invoice generation with fraud prevention and complete audit trails.
+A comprehensive full-stack web application designed to prevent invoice mismatches and fraud, ensure transparency between Nuru Company and client companies, and manage daily record keeping, invoice generation, and payment tracking with complete audit trails.
 
-## Features
+## 🎯 Project Objectives
 
-### Core Functionality
-- **Role-based Authentication**: Super Admin, Site Admin, and Supervisor roles
-- **Site & Project Management**: Create and manage projects, sites, and worker types
-- **Daily Data Entry**: Supervisors can record daily work with worker counts and payments
-- **Fraud Prevention**: Same-day corrections only, unlimited corrections with audit trail
-- **Dual Invoice Generation**: Client invoices (summary) and Nuru invoices (detailed)
-- **Comprehensive Reporting**: Advanced analytics, search, and export capabilities
+- **Fraud Prevention**: Prevent supervisors from manipulating invoices given to clients versus those recorded at Nuru
+- **Invoice Synchronization**: Ensure client and Nuru invoices are always identical in core data
+- **Payment Transparency**: Track daily worker payments with clear audit trails
+- **Administrative Control**: Provide comprehensive dashboard with flexible search and reporting capabilities
+- **Site Management**: Enable admins to create sites, define worker types/rates, and assign supervisors
+- **Operational Simplicity**: Keep the system practical and user-friendly for supervisors and admins
+- **Complete Traceability**: Provide full transparency and fraud prevention for daily work records
 
-### Security & Audit
-- **Complete Audit Trail**: All actions logged with timestamps and user information
-- **Immutable Records**: Historical data cannot be altered after day passes
-- **Supervisor Performance Tracking**: Monitor correction patterns and performance
-- **Role-based Access Control**: Granular permissions based on user roles
+## 🚀 Key Features
 
-### Technology Stack
-- **Backend**: Node.js, Express.js, PostgreSQL
-- **Frontend**: React 18, Ant Design, React Query
-- **PDF Generation**: Puppeteer for high-quality invoice generation
-- **Authentication**: JWT-based with bcrypt password hashing
-- **Currency**: TZS (Tanzanian Shillings) formatting
+### 🔐 Authentication & Security
+- **Role-Based Access Control**: Super Admin, Site Admin, Supervisor roles
+- **JWT Authentication**: Secure token-based authentication
+- **Fraud Prevention**: Same-day editing restrictions for daily records
+- **Audit Logging**: Complete action tracking with timestamps
+- **Input Validation**: Comprehensive form validation and SQL injection protection
 
-## Quick Start
+### 👥 User Management
+- **Complete CRUD Operations**: Create, read, update, delete users
+- **Role Management**: Assign and manage user roles
+- **Profile Management**: User profile editing and password management
+- **User Statistics**: Dashboard with user counts and role distribution
+
+### 🏗️ Site & Project Management
+- **Site Management**: Create and manage work sites with location details
+- **Project Management**: Organize sites under client projects
+- **Supervisor Assignment**: Assign supervisors to specific sites
+- **Company Integration**: Link sites and projects to client companies
+
+### 👷 Worker Types & Daily Records
+- **Worker Type Configuration**: Define worker types with daily rates (TZS)
+- **Daily Record Entry**: Simple supervisor interface for daily work data
+- **Fraud Prevention**: Records can only be edited on the same day
+- **Production Tracking**: Input tons produced or task completion metrics
+- **Payment Documentation**: Record actual amounts paid to each worker type
+
+### 📄 Dual Invoice System
+- **Client Invoice**: Contains site information, date, worker count, production data
+- **Nuru Invoice**: Contains all client data PLUS detailed payment information
+- **PDF Generation**: Professional invoice formatting using Puppeteer
+- **Invoice Management**: Draft, sent, paid, overdue statuses
+- **Download Options**: Separate downloads for client and Nuru invoices
+
+### 📊 Reports & Analytics
+- **Comprehensive Dashboard**: Real-time overview statistics
+- **Multiple Report Types**: Daily, weekly, monthly reports
+- **Interactive Charts**: Bar charts, line charts, pie charts using Recharts
+- **Site Performance Analysis**: Compare site productivity and costs
+- **Worker Type Analysis**: Cost analysis and distribution
+- **Export Functionality**: PDF and Excel export capabilities
+
+## 🛠️ Technology Stack
+
+### Frontend
+- **React 18**: Modern React with hooks and functional components
+- **Ant Design**: Professional UI component library
+- **React Query**: Efficient data fetching and caching
+- **React Router**: Client-side routing
+- **Recharts**: Data visualization and charting
+- **Day.js**: Date manipulation and formatting
+
+### Backend
+- **Node.js**: JavaScript runtime environment
+- **Express.js**: Web application framework
+- **PostgreSQL**: Relational database
+- **JWT**: JSON Web Tokens for authentication
+- **Winston**: Logging library for audit trails
+- **Puppeteer**: PDF generation for invoices
+- **Bcrypt**: Password hashing
+
+### Security & Validation
+- **Input Validation**: Comprehensive form validation
+- **SQL Injection Protection**: Parameterized queries
+- **Rate Limiting**: API protection against abuse
+- **CORS Configuration**: Secure cross-origin requests
+- **Password Security**: Bcrypt hashing with salt
+
+## 📁 Project Structure
+
+```
+nuru-company-system/
+├── client/                 # React frontend application
+│   ├── public/            # Static assets
+│   ├── src/
+│   │   ├── components/    # Reusable UI components
+│   │   ├── pages/         # Page components
+│   │   ├── services/      # API service layer
+│   │   ├── hooks/         # Custom React hooks
+│   │   ├── contexts/      # React contexts
+│   │   └── utils/         # Utility functions
+│   └── package.json       # Frontend dependencies
+├── server/                # Node.js backend application
+│   ├── routes/           # API route handlers
+│   ├── middleware/       # Express middleware
+│   ├── config/          # Configuration files
+│   ├── database/        # Database schema and migrations
+│   ├── utils/           # Utility functions
+│   └── package.json     # Backend dependencies
+├── setup.sh             # Automated setup script
+└── README.md           # Project documentation
+```
+
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 16+ and npm
-- PostgreSQL 12+
-- Git
+- Node.js (v16 or higher)
+- PostgreSQL (v12 or higher)
+- npm or yarn
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd nuru-worker-management
+   git clone https://github.com/kisotokopwi/nuru.git
+   cd nuru
    ```
 
-2. **Install dependencies**
+2. **Run the setup script**
    ```bash
-   npm run install-all
+   chmod +x setup.sh
+   ./setup.sh
    ```
 
-3. **Database Setup**
+3. **Configure environment variables**
    ```bash
-   # Create PostgreSQL database
-   createdb nuru_worker_management
-   
-   # Copy environment file
+   # Copy example environment files
    cp .env.example .env
+   cp server/.env.example server/.env
    
-   # Edit .env with your database credentials
-   nano .env
+   # Edit the environment files with your database credentials
    ```
 
-4. **Run database migrations**
+4. **Start the development servers**
    ```bash
-   cd server
-   npm run migrate
-   npm run seed
+   # Start backend server (from root directory)
+   cd server && npm run dev
+   
+   # Start frontend server (from root directory)
+   cd client && npm start
    ```
 
-5. **Start the application**
-   ```bash
-   # From project root
-   npm run dev
-   ```
-
-The application will be available at:
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:5000
+5. **Access the application**
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5000
 
 ### Default Login Credentials
+- **Super Admin**: admin@nuru.com / admin123
+- **Site Admin**: siteadmin@nuru.com / admin123
+- **Supervisor**: supervisor@nuru.com / admin123
 
-After running the seed script, you can login with:
+## 📊 Database Schema
 
-- **Super Admin**: admin@nurucompany.com / admin123
-- **Site Admin**: siteadmin@nurucompany.com / admin123  
-- **Supervisor**: supervisor@nurucompany.com / supervisor123
+The system uses PostgreSQL with the following main entities:
 
-## Project Structure
+- **users**: User accounts with role-based access
+- **companies**: Client companies
+- **projects**: Projects under companies
+- **sites**: Work sites under projects
+- **worker_types**: Worker types with daily rates
+- **daily_records**: Daily work records with fraud prevention
+- **invoices**: Dual invoice system (client & Nuru)
+- **audit_logs**: Complete audit trail
+- **supervisor_performance_logs**: Supervisor performance tracking
 
-```
-nuru-worker-management/
-├── client/                 # React frontend
-│   ├── src/
-│   │   ├── components/     # Reusable UI components
-│   │   ├── pages/         # Page components
-│   │   ├── hooks/         # Custom React hooks
-│   │   ├── services/      # API service functions
-│   │   ├── utils/         # Utility functions
-│   │   └── styles/        # CSS and styling
-│   └── public/            # Static assets
-├── server/                # Node.js backend
-│   ├── routes/            # API route handlers
-│   ├── middleware/        # Express middleware
-│   ├── utils/             # Utility functions
-│   ├── config/            # Configuration files
-│   ├── database/          # Database schema and migrations
-│   └── scripts/           # Database scripts
-└── docs/                  # Documentation
-```
-
-## API Endpoints
-
-### Authentication
-- `POST /api/auth/login` - User login
-- `GET /api/auth/profile` - Get user profile
-- `POST /api/auth/change-password` - Change password
-- `POST /api/auth/logout` - Logout
-
-### Companies
-- `GET /api/companies` - List companies
-- `POST /api/companies` - Create company
-- `GET /api/companies/:id` - Get company details
-- `PUT /api/companies/:id` - Update company
-- `DELETE /api/companies/:id` - Delete company
-
-### Projects
-- `GET /api/projects` - List projects
-- `POST /api/projects` - Create project
-- `GET /api/projects/:id` - Get project details
-- `PUT /api/projects/:id` - Update project
-- `DELETE /api/projects/:id` - Delete project
-
-### Sites
-- `GET /api/sites` - List sites
-- `POST /api/sites` - Create site
-- `GET /api/sites/:id` - Get site details
-- `PUT /api/sites/:id` - Update site
-- `POST /api/sites/:id/assign-supervisor` - Assign supervisor
-- `DELETE /api/sites/:id/remove-supervisor` - Remove supervisor
-
-### Worker Types
-- `GET /api/worker-types/site/:siteId` - Get worker types for site
-- `POST /api/worker-types` - Create worker type
-- `PUT /api/worker-types/:id` - Update worker type
-- `DELETE /api/worker-types/:id` - Delete worker type
-
-### Daily Records
-- `GET /api/daily-records/site/:siteId` - Get daily records for site
-- `POST /api/daily-records` - Create daily record (Supervisor only)
-- `PUT /api/daily-records/:id` - Update daily record (Same day only)
-- `GET /api/daily-records/summary/dashboard` - Get dashboard summary
-
-### Invoices
-- `POST /api/invoices/generate/:dailyRecordId` - Generate invoices
-- `GET /api/invoices` - List invoices
-- `GET /api/invoices/:id` - Get invoice details
-- `PUT /api/invoices/:id/status` - Update invoice status
-- `GET /api/invoices/:id/download` - Download invoice PDF
-
-### Reports
-- `GET /api/reports/dashboard` - Get dashboard data
-- `GET /api/reports/analytics` - Get detailed analytics
-- `GET /api/reports/supervisor-performance` - Get supervisor performance
-- `GET /api/reports/export` - Export data (CSV/JSON)
-
-## Key Features Explained
+## 🔒 Security Features
 
 ### Fraud Prevention
-- **Same-day corrections only**: Records become immutable after the day passes
-- **Unlimited same-day corrections**: Supervisors can correct mistakes with reason tracking
-- **Audit trail**: All actions are logged with timestamps and user information
-- **Performance monitoring**: System tracks excessive corrections per supervisor
+- **Same-Day Editing Only**: Daily records can only be edited on the day they're created
+- **Immutable History**: Past records cannot be modified
+- **Audit Trail**: All changes logged with timestamps and reasons
+- **Supervisor Performance Tracking**: Monitor excessive corrections
 
-### Dual Invoice System
-- **Client Invoice**: Contains site info, worker counts, production, and total amount
-- **Nuru Invoice**: Contains all client data PLUS detailed payment info and worker names
-- **Professional PDFs**: High-quality, branded invoices ready for delivery
-- **Template flexibility**: Customizable invoice formats per client
+### Authentication & Authorization
+- **JWT Tokens**: Secure authentication with expiration
+- **Role-Based Access**: Different permissions for different user roles
+- **Password Security**: Bcrypt hashing with salt rounds
+- **Session Management**: Secure token storage and validation
 
-### Advanced Reporting
-- **Real-time dashboard**: Current day summary with missing records alerts
-- **Flexible filtering**: By date range, company, project, site, or supervisor
-- **Analytics**: Time series data, productivity metrics, and performance insights
-- **Export capabilities**: CSV and JSON export for external analysis
+## 📈 Reporting & Analytics
 
-## Environment Variables
+### Dashboard Features
+- **Real-Time Statistics**: Live data updates
+- **Interactive Charts**: Multiple chart types for data visualization
+- **Export Capabilities**: PDF and Excel export options
+- **Advanced Filtering**: Filter by date, site, company, worker type
+- **Performance Metrics**: Productivity and cost analysis
 
-```env
-# Database Configuration
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=nuru_worker_management
-DB_USER=your_db_user
-DB_PASSWORD=your_db_password
+### Report Types
+- **Daily Reports**: Daily worker counts, payments, and production
+- **Weekly Reports**: Weekly summaries and trends
+- **Monthly Reports**: Monthly overviews and comparisons
+- **Site Performance**: Site-specific analytics
+- **Worker Type Analysis**: Cost analysis by worker type
 
-# JWT Configuration
-JWT_SECRET=your_super_secret_jwt_key_here
-JWT_EXPIRES_IN=24h
-
-# Server Configuration
-PORT=5000
-NODE_ENV=development
-
-# File Upload Configuration
-MAX_FILE_SIZE=10485760
-UPLOAD_PATH=./uploads
-
-# PDF Generation
-PDF_OUTPUT_PATH=./pdfs
-
-# Rate Limiting
-RATE_LIMIT_WINDOW_MS=900000
-RATE_LIMIT_MAX_REQUESTS=100
-```
-
-## Development
-
-### Running in Development Mode
-```bash
-npm run dev
-```
-
-### Running Tests
-```bash
-npm test
-```
-
-### Building for Production
-```bash
-npm run build
-```
-
-### Database Management
-```bash
-# Run migrations
-cd server && npm run migrate
-
-# Seed sample data
-cd server && npm run seed
-
-# Reset database (careful!)
-cd server && npm run migrate && npm run seed
-```
-
-## Deployment
+## 🚀 Deployment
 
 ### Production Deployment
-1. Set `NODE_ENV=production` in environment variables
-2. Update database credentials for production
-3. Set secure JWT secret
-4. Configure CORS for production domain
-5. Build frontend: `npm run build`
-6. Start server: `npm start`
+The system is ready for deployment to:
+- **AWS**: EC2, RDS, S3 for scalable deployment
+- **Hostinger**: Shared hosting or VPS deployment
+- **Docker**: Containerized deployment option
 
-### Docker Deployment (Optional)
+### Environment Configuration
 ```bash
-# Build Docker image
-docker build -t nuru-worker-management .
-
-# Run with Docker Compose
-docker-compose up -d
+# Production environment variables
+NODE_ENV=production
+DB_HOST=your-db-host
+DB_PORT=5432
+DB_NAME=nuru_production
+DB_USER=your-db-user
+DB_PASSWORD=your-db-password
+JWT_SECRET=your-jwt-secret
+PORT=5000
 ```
 
-## Security Considerations
+## 🤝 Contributing
 
-- All passwords are hashed using bcrypt
-- JWT tokens expire after 24 hours
-- Rate limiting prevents brute force attacks
-- Input validation on all endpoints
-- SQL injection protection with parameterized queries
-- CORS configured for specific origins
-- Helmet.js for security headers
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## Support
+## 📝 License
 
-For technical support or questions:
-- Email: support@nurucompany.com
-- Documentation: See `/docs` folder for detailed guides
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## License
+## 📞 Support
 
-This project is proprietary software developed for Nuru Company. All rights reserved.
+For support and questions:
+- Create an issue in the GitHub repository
+- Contact the development team
+- Check the documentation in the `/docs` folder
+
+## 🎉 Acknowledgments
+
+- Built with modern web technologies
+- Designed for fraud prevention and transparency
+- Optimized for user experience and operational efficiency
+- Comprehensive audit trail and reporting capabilities
 
 ---
 
-**Built with ❤️ for Nuru Company using AI-powered development**
+**Nuru Company Enhanced Worker Supervision & Invoice Management System** - Ensuring transparency, preventing fraud, and streamlining operations.
